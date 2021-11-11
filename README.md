@@ -5,11 +5,11 @@ Python Scripts for Home-Assistant (http://www.home-assistant.io)
 
 This is a python script to grab data from Zyxel NSA310 NAS and display in Home Asisstant as sensors.
 The script is connecting to the WEB UI and take:
-    - CPU Usage
-    - CPU Temp
-    - HDD Health
-    - HDD Usage
-    - Memory Usage
+- CPU Usage
+- CPU Temp
+- HDD Health
+- HDD Usage
+- Memory Usage
     
   ![image](https://user-images.githubusercontent.com/33951255/141298155-88b4dd31-f653-4d78-92b6-1715e7d80b73.png)
   

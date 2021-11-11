@@ -1,4 +1,4 @@
-# Home-Assistant Python Script
+# Home-Assistant Python Scripts
 Python Scripts for Home-Assistant (http://www.home-assistant.io)
 
 # Zyxel-NSA310-Home-Assistant Monitoring

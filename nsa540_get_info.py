@@ -14,7 +14,7 @@ try:
     if parse_login == '9':
         response = ses.get('http://192.168.1.130/cmd,/ck6fup6/system_main/show_sysinfo?_dc=1')
         
-        parse_json = response.text
+        parse_json = json.loads(response.text)
         cpu_usage = str(parse_json["system"]["cpu"]["usage"].replace('%', '')).strip()
         cpu_temp = str(parse_json["system"]["status"]["temp"]).strip()
         mem_usage = str(parse_json["system"]["memory"]["usage"].replace('%', '')).strip()

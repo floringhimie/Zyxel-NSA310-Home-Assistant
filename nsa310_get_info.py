@@ -8,11 +8,11 @@ import sys
 
 ses = requests.session()
 try:
-    response_login = ses.get('http://192.168.0.110/r49435,/adv,/cgi-bin/weblogin.cgi?username='+str(sys.argv[1])+'&password='+str(sys.argv[2]))
+    response_login = ses.get('http://'+str(sys.argv[1])+'/r49435,/adv,/cgi-bin/weblogin.cgi?username='+str(sys.argv[2])+'&password='+str(sys.argv[3]))
     parse_login= response_login.text.split(':')[1].replace('}', '').replace(')', '')
     
     if parse_login == '9':
-        response = ses.get('http://192.168.0.110/r49435,/adv,/cgi-bin/zysh-cgi?c0=show cpu temperature&write=0&c1=show mem status&c2=storage showIVolumeInfo&c3=show cpu status')
+        response = ses.get('http://'+str(sys.argv[1])+'/r49435,/adv,/cgi-bin/zysh-cgi?c0=show cpu temperature&write=0&c1=show mem status&c2=storage showIVolumeInfo&c3=show cpu status')
         
         parse_json = response.text.replace('(', '').replace(')', '').replace("'", '"').replace(': [', '": [')
         parse_json = parse_json.replace('zyshd', '"zyshd')
@@ -35,6 +35,6 @@ try:
         'Content-Type': "application/x-www-form-urlencoded"
         }
     payload_data = "perform=logout"
-    response_logout = ses.post('http://192.168.0.110/r49435,/adv,/cgi-bin/setuser.cgi', data=payload_data, headers=headers)
+    response_logout = ses.post('http://'+str(sys.argv[1])+'/r49435,/adv,/cgi-bin/setuser.cgi', data=payload_data, headers=headers)
 except:
     print('{}')
